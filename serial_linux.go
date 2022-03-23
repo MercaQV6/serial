@@ -51,7 +51,7 @@ func openPort(name string, baud int, databits byte, parity Parity, stopbits Stop
 		return nil, fmt.Errorf("Unrecognized baud rate")
 	}
 
-	f, err := os.OpenFile(name, unix.O_RDWR|unix.O_NOCTTY|unix.FIONBIO, 0666)	//unix.O_NONBLOCK
+	f, err := os.OpenFile(name, unix.O_RDWR|unix.O_NOCTTY|unix.O_NONBLOCK, 0666)	//unix.O_NONBLOCK
 	if err != nil {
 		return nil, err
 	}
